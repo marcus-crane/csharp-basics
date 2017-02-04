@@ -13,7 +13,7 @@ namespace SimpleClasses
             favouriteMovie.Year = 2008;
             favouriteMovie.Budget = 230000;
 
-            Console.WriteLine("I can recommend {0} by {1}!\nIt released in {2} and was made on a budget of ${3}.",
+            Console.WriteLine("I can recommend {0} by {1}!\nIt released in {2} and was made on a budget of {3:C}",
                 favouriteMovie.Name,
                 favouriteMovie.Director,
                 favouriteMovie.Year,
