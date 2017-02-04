@@ -33,9 +33,11 @@ namespace SimpleMethod
         // Respond method is private so it can't be accessed outside of the Program class(?) and is void so it returns no value
         private static void Respond(string firstName, string lastName, string homeTown)
         {
-            Console.WriteLine("Did you know that your first name backwards is {0}?", ReverseString(firstName));
-            Console.WriteLine("Did you know that your last name backwards is {0}?", ReverseString(lastName));
-            Console.WriteLine("Did you know that the name of your hometown backwards is {0}?", ReverseString(homeTown));
+            Console.WriteLine(String.Format("If we reversed the information you entered, you would become {0} {1} from {2}",
+                ReverseString(firstName),
+                ReverseString(lastName),
+                ReverseString(homeTown)
+                ));
         }
 
         // ReverseString method is private and returns a string
