@@ -26,11 +26,11 @@ namespace Collections
             book1.Author = "Rob Miles";
             book1.ISBN = "978-1509301157";
 
-            /*
-             * Old style of collections
-             * They're dynamically sized, allow sorting etc
-             * Allowed adding of any class which, if I tried to add a book, would say it couldn't cast a book into a language
-             * However, the languages themselves would still print until it hit book and then throw an exception
+            
+            // Old style of collections
+            // They're dynamically sized, allow sorting etc
+            // Allowed adding of any class which, if I tried to add a book, would say it couldn't cast a book into a language
+            // However, the languages themselves would still print until it hit book and then throw an exception
              
 
             ArrayList arrayList = new ArrayList();
@@ -41,24 +41,21 @@ namespace Collections
             {
                 Output.PrintLanguages(language.Name, language.ReleaseYear, language.LatestStableVersion);
             }
-            */
 
-            /*
-             * List based collection
+            // List based collection
              
             List<Language> list = new List<Language>();
             list.Add(language1);
             list.Add(language2);
+            
             // What if we try to add a book?
-            // list.Add(book1);
+            list.Add(book1);
             // VS states cannot convert Collections.Book => Collections.Language before the application is even run
 
             foreach(Language language in list)
             {
                 Output.PrintLanguages(language.Name, language.ReleaseYear, language.LatestStableVersion);
             }
-
-            */
 
             // Dictionary Collection
 
