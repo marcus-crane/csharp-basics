@@ -26,12 +26,12 @@ namespace Collections
             book1.Author = "Rob Miles";
             book1.ISBN = "978-1509301157";
 
-            
+
             // Old style of collections
             // They're dynamically sized, allow sorting etc
             // Allowed adding of any class which, if I tried to add a book, would say it couldn't cast a book into a language
             // However, the languages themselves would still print until it hit book and then throw an exception
-             
+
 
             ArrayList arrayList = new ArrayList();
             arrayList.Add(language1);
@@ -43,11 +43,11 @@ namespace Collections
             }
 
             // List based collection
-             
+
             List<Language> list = new List<Language>();
             list.Add(language1);
             list.Add(language2);
-            
+
             // What if we try to add a book?
             list.Add(book1);
             // VS states cannot convert Collections.Book => Collections.Language before the application is even run
@@ -68,7 +68,22 @@ namespace Collections
 
             // Fetch C++ by its ID (a string of 2) Apparently the key needs to always be a string?
             Console.WriteLine(dictionary["2"].Name);
-            
+
+            // Keys are whatever type you specify in the declaration! You can do any
+            // combination you like. But the key must be unique.
+            var boolKey = new Dictionary<bool, string>();
+            boolKey.Add(true, "Hello!");
+            boolKey.Add(false, "Bye!");
+            boolKey.Add(true, "Hello again!"); // throws ArgumentException (i think)
+
+            var intKey = new Dictionary<int, int>();
+            intKey.Add(1, 2);
+            intKey.Add(2, 1);
+            intKey.Add(3, 1);
+            intKey.Add(1, 3); // throws ArgumentException, same key
+
+            // This is called Generics in C#, and is super powerful, worth reading about
+
             Console.ReadKey();
 
         }
