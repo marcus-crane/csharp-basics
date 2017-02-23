@@ -30,7 +30,15 @@ namespace SimpleMethod
             Console.ReadKey();
         }
 
-        // Respond method is private so it can't be accessed outside of the Program class(?) and is void so it returns no value
+        // Respond method is private so it can't be accessed outside of the Program class(?) *
+        // and is void so it returns no value
+        // * Correct!
+        // public = Can be called by any instantiation
+        // private = Only seen by itself
+        // internal = Only callable from within the same assembly
+        // virtual = Can be overriden in a child class
+        // protected = Only visible by itself or child classes
+        // abstract = A 'contract'. A method definition that should be implemented by child classes        
         private static void Respond(string firstName, string lastName, string homeTown)
         {
             Console.WriteLine(String.Format("If we reversed the information you entered, you would become {0} {1} from {2}",
