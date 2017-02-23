@@ -15,16 +15,22 @@ namespace basicWebRequest
             // Output the status (OK / 200) to the terminal
             Console.WriteLine(((HttpWebResponse)response).StatusDescription);
             // Get the actual content from the stream returned by the server
-            Stream newsStream = response.GetResponseStream();
-            // Create an instance of the StreamReader class and pass it the content stream
-            StreamReader reader = new StreamReader(newsStream);
-            // Read the actual content
-            string serverResponse = reader.ReadToEnd();
+
+            string serverResponse;
+            // You can stack usings on top of each other!
+            using(Stream newsStream = response.GetResponseStream())
+            using(StreamReader reader = new StreamReader(newsStream))
+            {
+                // Read the actual content
+                serverResponse = reader.ReadToEnd();
+            }
+            // No need to close/dispose of the readers, as this will be done
+            // for us! It's a bit of a preference whether you call .Close()
+            // and some Close() even call Dispose() for you, but for readability
+            // and to make things clear, I prefer just the using statement.
+
             // Output the response to the terminal
             Console.WriteLine(serverResponse);
-            // Close the reader stream and response stream
-            reader.Close();
-            response.Close();
         }
     }
 }
